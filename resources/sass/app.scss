@@ -1,0 +1,25 @@
+/* Result progress bar */
+$progress-bar-stroke-width: 1;
+$progress-bar-size: 100%;
+
+.result-progress svg {
+    height: $progress-bar-size;
+    transform: rotate(-90deg);
+    width: $progress-bar-size;
+}
+
+.progress-bar__background {
+    fill: none;
+    stroke: #e2eff0;
+    stroke-width: $progress-bar-stroke-width;
+}
+
+.progress-bar__progress {
+    fill: none;
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 100;
+    stroke-linecap: round;
+    stroke-width: $progress-bar-stroke-width;
+    transition: stroke-dashoffset 1s ease-in-out;
+}
+/* end of Result progress bar */
