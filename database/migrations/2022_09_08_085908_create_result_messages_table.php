@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->boolean('default')->nullable()->default(0);
-            $table->foreignId('quiz_id')->references('id')->on('quizzes')->onDelete('cascade');
+            $table->foreignId('quiz_id')->nullable()->references('id')->on('quizzes')->onDelete('cascade');
             $table->bigInteger('rating_from')->nullable();
             $table->timestamps();
         });

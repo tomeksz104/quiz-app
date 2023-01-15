@@ -49,7 +49,7 @@
             <div class="space-y-8">
                 @if ($comments->isNotEmpty())
                     @foreach($comments as $comment)
-                        <livewire:frontend.comments.comment :comment="$comment" :key="$comment->id"/>
+                        <livewire:comments.comment :comment="$comment" :key="$comment->id"/>
                     @endforeach
                     {{ $comments->links() }}
                 @else

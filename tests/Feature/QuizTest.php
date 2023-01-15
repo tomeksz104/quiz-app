@@ -35,14 +35,11 @@ class QuizTest extends TestCase
         ->create(['id' => 555, 'quiz_type' => QuizType::factory()->create()])
         ->each(function ($quiz) {
              // Create Models Support
-             $questions = Question::factory()->count(5)->create();
+             $questions = Question::factory()->count(5)->create(['quiz_id' => 555]);
 
              foreach($questions as $question)
              {
                 Answers::factory()->count(4)->create(['question_id' =>$question->id, 'correct' => 0]);
-
-                // Create Pivot
-                $quiz->questions()->attach($question->id);
              }
          });
 
@@ -74,14 +71,11 @@ class QuizTest extends TestCase
         ->create(['id' => 556, 'quiz_type' => QuizType::factory()->create()])
         ->each(function ($quiz) {
              // Create Models Support
-             $questions = Question::factory()->count(5)->create();
+             $questions = Question::factory()->count(5)->create(['quiz_id' => 556]);
 
              foreach($questions as $question)
              {
                 Answers::factory()->count(4)->create(['question_id' =>$question->id, 'correct' => 1]);
-
-                // Create Pivot
-                $quiz->questions()->attach($question->id);
              }
          });
 

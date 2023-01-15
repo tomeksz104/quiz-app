@@ -103,7 +103,7 @@
         @endif
 
         @foreach ($comment->children as $child)
-            <livewire:frontend.comments.comment :comment="$child" :key="$child->id"/>
+            <livewire:comments.comment :comment="$child" :key="$child->id"/>
         @endforeach
     </div>
 </div>

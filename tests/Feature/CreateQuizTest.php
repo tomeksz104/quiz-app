@@ -88,9 +88,9 @@ class CreateQuizTest extends TestCase
         $wizard->assertSee('Świetnie! Twój quiz został utworzony.');
 
         $this->assertDatabaseHas(Quiz::class, ['title' => $data['quiz_title'], 'description' => $data['description']]);
-        $this->assertDatabaseHas(Question::class, ['question' => $data['question']['title']]);
-        $this->assertDatabaseHas(Answers::class, ['answer' => $data['question']['answers'][0]['title']]);
-        $this->assertDatabaseHas(Answers::class, ['answer' => $data['question']['answers'][1]['title']]);
+        $this->assertDatabaseHas(Question::class, ['title' => $data['question']['title']]);
+        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][0]['title']]);
+        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][1]['title']]);
     }
 
     public function test_create_timed_quiz()
@@ -151,9 +151,9 @@ class CreateQuizTest extends TestCase
         $wizard->assertSee('Świetnie! Twój quiz został utworzony.');
 
         $this->assertDatabaseHas(Quiz::class, ['title' => $data['quiz_title'], 'description' => $data['description']]);
-        $this->assertDatabaseHas(Question::class, ['question' => $data['question']['title']]);
-        $this->assertDatabaseHas(Answers::class, ['answer' => $data['question']['answers'][0]['title']]);
-        $this->assertDatabaseHas(Answers::class, ['answer' => $data['question']['answers'][1]['title']]);
+        $this->assertDatabaseHas(Question::class, ['title' => $data['question']['title']]);
+        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][0]['title']]);
+        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][1]['title']]);
     }
 
     public function test_create_riddle_quiz()
@@ -214,9 +214,9 @@ class CreateQuizTest extends TestCase
         $wizard->assertSee('Świetnie! Twój quiz został utworzony.');
 
         $this->assertDatabaseHas(Quiz::class, ['title' => $data['quiz_title'], 'description' => $data['description']]);
-        $this->assertDatabaseHas(Question::class, ['question' => $data['question']['title']]);
-        $this->assertDatabaseHas(Answers::class, ['answer' => $data['question']['answers'][0]['title']]);
-        $this->assertDatabaseHas(Answers::class, ['answer' => $data['question']['answers'][1]['title']]);
+        $this->assertDatabaseHas(Question::class, ['title' => $data['question']['title']]);
+        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][0]['title']]);
+        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][1]['title']]);
     }
 
     public function test_create_psychotest_quiz()
@@ -296,9 +296,9 @@ class CreateQuizTest extends TestCase
         $wizard->assertSee('Świetnie! Twój quiz został utworzony.');
 
         $this->assertDatabaseHas(Quiz::class, ['title' => $data['quiz_title'], 'description' => $data['description']]);
-        $this->assertDatabaseHas(Question::class, ['question' => $data['question']['title']]);
-        $this->assertDatabaseHas(Answers::class, ['answer' => $data['question']['answers'][0]['title']]);
-        $this->assertDatabaseHas(Answers::class, ['answer' => $data['question']['answers'][1]['title']]);
+        $this->assertDatabaseHas(Question::class, ['title' => $data['question']['title']]);
+        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][0]['title']]);
+        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][1]['title']]);
     }
 
     public function test_create_what_do_you_prefer_quiz()
@@ -351,8 +351,8 @@ class CreateQuizTest extends TestCase
         $wizard->assertSee('Świetnie! Twój quiz został utworzony.');
 
         $this->assertDatabaseHas(Quiz::class, ['title' => $data['quiz_title'], 'description' => $data['description']]);
-        $this->assertDatabaseHas(Question::class, ['question' => $data['question']['title']]);
-        $this->assertDatabaseHas(Answers::class, ['answer' => $data['question']['answers'][0]['title']]);
-        $this->assertDatabaseHas(Answers::class, ['answer' => $data['question']['answers'][1]['title']]);
+        $this->assertDatabaseHas(Question::class, ['title' => $data['question']['title']]);
+        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][0]['title']]);
+        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][1]['title']]);
     }
 }
