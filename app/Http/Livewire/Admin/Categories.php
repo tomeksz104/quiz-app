@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\User;
+use App\Models\Category;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Users extends Component
+class Categories extends Component
 {
     use WithPagination;
 
@@ -14,7 +14,7 @@ class Users extends Component
     public $perPage = 10;
     public $orderBy = 'id';
     public $selectedPages = [];
-    public $selectedUsers = [];
+    public $selectedCategories = [];
     public $activeBulkDelete = false;
     public $selectAll = false;
 
@@ -22,57 +22,59 @@ class Users extends Component
 
     public function render()
     {
-        return view('livewire.admin.users',[
-            'users' => User::where('username', 'like', '%'.$this->search.'%')
-                ->orWhere('email', 'like', '%'.$this->search.'%')
+        return view('livewire.admin.categories',[
+            'categories' => Category::where('title', 'like', '%'.$this->search.'%')
                 ->orderBy($this->orderBy, 'desc')
                 ->with('image')
                 ->paginate($this->perPage),
             'perPage' =>  $this->perPage,
         ])
-            ->extends('layout/main')
+           ->extends('layout/main')
             ->section('content');
     }
 
     public function deleteConfrim($ids = NULL) {
-        if($this->selectedUsers || $ids) {
+        if($this->selectedCategories || $ids) {
             $this->dispatchBrowserEvent('swal:delete', [
                 'title' => 'Usuwanie rekordu',
                 'text' => 'Usuwasz rekord/y z bazy danych. Nie będziesz w stanie tego cofnąć!',
                 'type' => 'warning',
-                'ids' => $ids ?? $this->selectedUsers,
+                'ids' => $ids ?? $this->selectedCategories,
             ]);
         }
+
     }
 
     public function delete($ids){
-        foreach((array) $ids as $key => $userId) {
-            $user = User::find($userId);
-            $user->delete();
+        foreach((array) $ids as $key => $categoryId) {
+            $category = Category::find($categoryId);
+            $category->quizzes()->detach();
+            $category->image->delete();
+            $category->delete();
         }
 
         $this->selectedPages = [];
         $this->activeBulkDelete = false;
         $this->selectAll = false;
-        $this->selectedUsers = [];
+        $this->selectedCategories = [];
 
         $this->emit('refresh');
     }
 
-    public function addSelectedUser($id)
+    public function addSelectedCategory($id)
     {
-        if(!in_array($id, $this->selectedUsers)) {
-            $this->selectedUsers[] = ''.$id.'';
+        if(!in_array($id, $this->selectedCategories)) {
+            $this->selectedCategories[] = ''.$id.'';
         } else {
-            $key = array_search($id, $this->selectedUsers);
-            unset($this->selectedUsers[$key]);
+            $key = array_search($id, $this->selectedCategories);
+            unset($this->selectedCategories[$key]);
         }
-        $this->updatedSelectedUsers();
+        $this->updatedSelectedCategories();
     }
 
     public function updatedSelectAll($value)
     {
-        $users = User::where('username', 'like', '%'.$this->search.'%')
+        $categories = Category::where('title', 'like', '%'.$this->search.'%')
             ->orderBy($this->orderBy, 'desc')
             ->paginate($this->perPage)
             ->pluck('id')
@@ -81,27 +83,27 @@ class Users extends Component
         if($value)
         {
             $this->selectedPages[] = $this->page;
-            foreach ($users as $user) {
-                if(!in_array($user,$this->selectedUsers)) {
-                    $this->selectedUsers[] = ''.$user.'';
+            foreach ($categories as $category) {
+                if(!in_array($category,$this->selectedCategories)) {
+                    $this->selectedCategories[] = ''.$category.'';
                 }
             }
         }
         else
         {
             unset($this->selectedPages[array_search($this->page, $this->selectedPages)]);
-            foreach ($users as $user)
+            foreach ($categories as $category)
             {
-                $key = array_search($user, $this->selectedusers);
-                unset($this->selectedusers[$key]);
+                $key = array_search($category, $this->selectedCategories);
+                unset($this->selectedCategories[$key]);
             }
         }
-        $this->updatedSelectedUsers();
+        $this->updatedSelectedCategories();
     }
 
-    public function updatedSelectedusers(): bool
+    public function updatedSelectedCategories(): bool
     {
-        if($this->selectedUsers) {
+        if($this->selectedCategories) {
             $this->activeBulkDelete = true;
         } else {
             $this->activeBulkDelete = false;

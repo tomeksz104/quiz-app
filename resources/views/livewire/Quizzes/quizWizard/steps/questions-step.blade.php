@@ -1,5 +1,5 @@
 <div>
-    @include('livewire.quizzes.quizWizard.navigation')
+    @include('livewire.Quizzes.quizWizard.navigation')
     <div class="container px-0 md:px-10 rounded-md">
         @if($this->questions)
             @foreach($this->questions as $question_key => $question)
@@ -164,7 +164,7 @@
             <button wire:click="addQuestion" class="font-semibold"> Dodaj pytanie +</button>
         </div>
         @endif
-        @include('livewire.quizzes.quizWizard.pagination')
+        @include('livewire.Quizzes.quizWizard.pagination')
     </div>
 </div>
 

@@ -31,7 +31,7 @@ class QuizVotes extends Component
             $this->voted = true;
         }
 
-        return view('livewire.components.quiz-votes');
+        return view('livewire.Components.quiz-votes');
     }
 
     public function vote()

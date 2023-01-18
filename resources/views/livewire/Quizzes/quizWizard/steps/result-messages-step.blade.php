@@ -1,5 +1,5 @@
 <div>
-    @include('livewire.quizzes.quizWizard.navigation')
+    @include('livewire.Quizzes.quizWizard.navigation')
 
     <div class="container px-10">
         @if($this->quiz_type !== 4)
@@ -156,7 +156,7 @@
         @endif
 
 
-        @include('livewire.quizzes.quizWizard.pagination')
+        @include('livewire.Quizzes.quizWizard.pagination')
     </div>
 </div>
 

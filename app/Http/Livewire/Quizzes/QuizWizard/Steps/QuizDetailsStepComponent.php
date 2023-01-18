@@ -83,7 +83,7 @@ class QuizDetailsStepComponent extends StepComponent
             ->get();
 
 
-        return view('livewire.quizzes.quizWizard.steps.quiz-details-step',[
+        return view('livewire.Quizzes.quizWizard.steps.quiz-details-step',[
             'categories' => $categories,
         ]);
     }

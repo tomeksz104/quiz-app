@@ -1,5 +1,5 @@
 <div>
-    @include('livewire.quizzes.quizWizard.navigation')
+    @include('livewire.Quizzes.quizWizard.navigation')
     <div class="container px-0 md:px-10 rounded-md">
         <div class="border-l-8 border-l-blue-500 ring-1 ring-neutral-200 rounded-2xl mt-5">
             <div class="max-w-5xl px-4 sm:px-0 py-10 mx-auto">
@@ -105,6 +105,6 @@
                 </div>
             </div>
         </div>
-        @include('livewire.quizzes.quizWizard.pagination')
+        @include('livewire.Quizzes.quizWizard.pagination')
     </div>
 </div>

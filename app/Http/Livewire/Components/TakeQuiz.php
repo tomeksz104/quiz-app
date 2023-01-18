@@ -23,7 +23,7 @@ class TakeQuiz extends Component
 
     public function render()
     {
-        return view('livewire.components.take-quiz', [
+        return view('livewire.Components.take-quiz', [
             'totalQuestions' => count($this->quiz->questions),
             'question' => $this->quiz->questions[$this->numberQuestion],
             'answers' => $this->quiz->questions[$this->numberQuestion]->answers,

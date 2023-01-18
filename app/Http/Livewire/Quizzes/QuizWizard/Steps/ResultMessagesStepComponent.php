@@ -143,6 +143,6 @@ class ResultMessagesStepComponent extends StepComponent
 
     public function render()
     {
-        return view('livewire.quizzes.quizWizard.steps.result-messages-step');
+        return view('livewire.Quizzes.quizWizard.steps.result-messages-step');
     }
 }

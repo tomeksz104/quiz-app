@@ -26,7 +26,7 @@ class UserQuizzes extends Component
             ->orderBy($this->orderBy, 'desc')
             ->paginate($this->perPage);
 
-        return view('livewire.user.user-quizzes',[
+        return view('livewire.User.user-quizzes',[
             'quizzes' => $quizzes,
             'perPage' =>  $this->perPage,
         ])

@@ -46,7 +46,7 @@ class UserProfileTabs extends Component
                                             ->paginate(12);
         }
 
-        return view('livewire.user.user-profile-tabs');
+        return view('livewire.User.user-profile-tabs');
     }
 
     public function setTab($tab)

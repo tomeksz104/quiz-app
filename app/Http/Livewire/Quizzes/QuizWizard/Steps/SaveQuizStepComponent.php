@@ -216,7 +216,7 @@ class SaveQuizStepComponent extends StepComponent
             $this->isSave = true;
         }
 
-        return view('livewire.quizzes.quizWizard.steps.save-quiz-step',[
+        return view('livewire.Quizzes.quizWizard.steps.save-quiz-step',[
             'quiz' => $quiz
         ]);
     }

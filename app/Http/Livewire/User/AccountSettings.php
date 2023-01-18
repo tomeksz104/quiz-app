@@ -143,7 +143,7 @@ class AccountSettings extends Component
 
     public function render()
     {
-        return view('livewire.user.account-settings')
+        return view('livewire.User.account-settings')
             ->extends('layout/main')
             ->section('content');
     }

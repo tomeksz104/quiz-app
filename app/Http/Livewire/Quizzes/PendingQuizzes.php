@@ -20,7 +20,7 @@ class PendingQuizzes extends Component
             ->with('category', 'image', 'user')
             ->paginate(14);
 
-        return view('livewire.quizzes.pending-quizzes',[
+        return view('livewire.Quizzes.pending-quizzes',[
             'quizzes' => $quizzes,
         ]);
     }

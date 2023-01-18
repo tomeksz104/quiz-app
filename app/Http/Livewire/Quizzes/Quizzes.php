@@ -90,7 +90,7 @@ class Quizzes extends Component
 
         $quizzes = $quizzes->paginate(10);
 
-        return view('livewire.quizzes.quizzes', [
+        return view('livewire.Quizzes.quizzes', [
             'quizzes' => $quizzes,
             'selectedCategory' => $selectedCategory ?? null,
             'categories' =>  Category::select('id','title')->get(),

@@ -156,7 +156,7 @@ class Quiz extends Model implements Searchable
         parent::boot();
 
         static::deleting(function($quiz) { // before delete() method call this
-            if(file_exists(public_path($quiz->image->path)))
+            if(isset($quiz->image->path) && file_exists(public_path($quiz->image->path)))
             {
                 unlink(public_path($quiz->image->path));  // delete image if exists
             }

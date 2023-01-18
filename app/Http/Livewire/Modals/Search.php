@@ -16,7 +16,7 @@ class Search extends ModalComponent
 
     public function render()
     {
-        return view('livewire.modals.search');
+        return view('livewire.Modals.search');
     }
 
     public function updatedSearch() {

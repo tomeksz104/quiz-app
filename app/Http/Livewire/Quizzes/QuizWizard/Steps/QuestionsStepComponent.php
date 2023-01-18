@@ -281,6 +281,6 @@ class QuestionsStepComponent extends StepComponent
 
     public function render()
     {
-        return view('livewire.quizzes.quizWizard.steps.questions-step');
+        return view('livewire.Quizzes.quizWizard.steps.questions-step');
     }
 }
