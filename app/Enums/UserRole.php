@@ -4,6 +4,7 @@ namespace App\Enums;
 
 class UserRole
 {
+
     const ADMIN = 'Administrator';
     const USER = 'Użytkownik';
 
@@ -12,3 +13,5 @@ class UserRole
         self::USER,
     ];
 }
+
+

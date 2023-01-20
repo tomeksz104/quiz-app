@@ -3,11 +3,11 @@
 namespace Database\Factories;
 
 use App\Models\Question;
-use App\Models\Answers;
+use App\Models\Answer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Answers>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Answer>
  */
 class AnswersFactory extends Factory
 {
@@ -17,7 +17,7 @@ class AnswersFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = Answers::class;
+    protected $model = Answer::class;
 
     public function definition()
     {

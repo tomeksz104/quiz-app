@@ -21,7 +21,7 @@ class Question extends Model
 
     public function answers(): HasMany
     {
-        return $this->hasMany(Answers::class, 'question_id');
+        return $this->hasMany(Answer::class, 'question_id');
     }
 
     public function image(): MorphOne
@@ -29,7 +29,7 @@ class Question extends Model
         return $this->morphOne(Image::class, 'imageable');
     }
 
-    public static function boot() {
+    /*public static function boot() {
         parent::boot();
 
         static::deleting(function($question) { // before delete() method call this
@@ -39,6 +39,6 @@ class Question extends Model
             }
             $question->image()->delete();
         });
-    }
+    }*/
 
 }

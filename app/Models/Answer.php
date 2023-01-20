@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
-class Answers extends Model
+class Answer extends Model
 {
     use HasFactory;
 
@@ -22,7 +22,7 @@ class Answers extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
-    public static function boot() {
+    /*public static function boot() {
         parent::boot();
 
         static::deleting(function($answer) { // before delete() method call this
@@ -32,5 +32,5 @@ class Answers extends Model
             }
             $answer->image()->delete();
         });
-    }
+    }*/
 }

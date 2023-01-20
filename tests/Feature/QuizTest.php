@@ -6,7 +6,7 @@ use App\Http\Livewire\Comments\Comments;
 use App\Http\Livewire\Components\QuizVotes;
 use App\Http\Livewire\Components\TakeQuiz;
 use App\Http\Livewire\Modals\Search;
-use App\Models\Answers;
+use App\Models\Answer;
 use App\Models\Comment;
 use App\Models\Question;
 use App\Models\Quiz;
@@ -39,7 +39,7 @@ class QuizTest extends TestCase
 
              foreach($questions as $question)
              {
-                Answers::factory()->count(4)->create(['question_id' =>$question->id, 'correct' => 0]);
+                Answer::factory()->count(4)->create(['question_id' =>$question->id, 'correct' => 0]);
              }
          });
 
@@ -75,7 +75,7 @@ class QuizTest extends TestCase
 
              foreach($questions as $question)
              {
-                Answers::factory()->count(4)->create(['question_id' =>$question->id, 'correct' => 1]);
+                Answer::factory()->count(4)->create(['question_id' =>$question->id, 'correct' => 1]);
              }
          });
 

@@ -19,7 +19,7 @@ class ResultsQuestion extends Model
 
     public function questions_answers(): BelongsTo
     {
-        return $this->belongsTo(Answers::class, 'question_answer_id');
+        return $this->belongsTo(Answer::class, 'question_answer_id');
     }
 
     public function scopeGetPercentageResultForAnswers(Builder $query, $questions_ids)

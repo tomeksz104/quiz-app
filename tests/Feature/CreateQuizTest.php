@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use App\Http\Livewire\QuizVotes;
 use App\Http\Livewire\Quizzes\QuizWizard\QuizWizardComponent;
 use App\Http\Livewire\TakeQuiz;
-use App\Models\Answers;
+use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Quiz;
 use App\Models\QuizType;
@@ -89,8 +89,8 @@ class CreateQuizTest extends TestCase
 
         $this->assertDatabaseHas(Quiz::class, ['title' => $data['quiz_title'], 'description' => $data['description']]);
         $this->assertDatabaseHas(Question::class, ['title' => $data['question']['title']]);
-        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][0]['title']]);
-        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][1]['title']]);
+        $this->assertDatabaseHas(Answer::class, ['title' => $data['question']['answers'][0]['title']]);
+        $this->assertDatabaseHas(Answer::class, ['title' => $data['question']['answers'][1]['title']]);
     }
 
     public function test_create_timed_quiz()
@@ -152,8 +152,8 @@ class CreateQuizTest extends TestCase
 
         $this->assertDatabaseHas(Quiz::class, ['title' => $data['quiz_title'], 'description' => $data['description']]);
         $this->assertDatabaseHas(Question::class, ['title' => $data['question']['title']]);
-        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][0]['title']]);
-        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][1]['title']]);
+        $this->assertDatabaseHas(Answer::class, ['title' => $data['question']['answers'][0]['title']]);
+        $this->assertDatabaseHas(Answer::class, ['title' => $data['question']['answers'][1]['title']]);
     }
 
     public function test_create_riddle_quiz()
@@ -215,8 +215,8 @@ class CreateQuizTest extends TestCase
 
         $this->assertDatabaseHas(Quiz::class, ['title' => $data['quiz_title'], 'description' => $data['description']]);
         $this->assertDatabaseHas(Question::class, ['title' => $data['question']['title']]);
-        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][0]['title']]);
-        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][1]['title']]);
+        $this->assertDatabaseHas(Answer::class, ['title' => $data['question']['answers'][0]['title']]);
+        $this->assertDatabaseHas(Answer::class, ['title' => $data['question']['answers'][1]['title']]);
     }
 
     public function test_create_psychotest_quiz()
@@ -297,8 +297,8 @@ class CreateQuizTest extends TestCase
 
         $this->assertDatabaseHas(Quiz::class, ['title' => $data['quiz_title'], 'description' => $data['description']]);
         $this->assertDatabaseHas(Question::class, ['title' => $data['question']['title']]);
-        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][0]['title']]);
-        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][1]['title']]);
+        $this->assertDatabaseHas(Answer::class, ['title' => $data['question']['answers'][0]['title']]);
+        $this->assertDatabaseHas(Answer::class, ['title' => $data['question']['answers'][1]['title']]);
     }
 
     public function test_create_what_do_you_prefer_quiz()
@@ -352,7 +352,7 @@ class CreateQuizTest extends TestCase
 
         $this->assertDatabaseHas(Quiz::class, ['title' => $data['quiz_title'], 'description' => $data['description']]);
         $this->assertDatabaseHas(Question::class, ['title' => $data['question']['title']]);
-        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][0]['title']]);
-        $this->assertDatabaseHas(Answers::class, ['title' => $data['question']['answers'][1]['title']]);
+        $this->assertDatabaseHas(Answer::class, ['title' => $data['question']['answers'][0]['title']]);
+        $this->assertDatabaseHas(Answer::class, ['title' => $data['question']['answers'][1]['title']]);
     }
 }

@@ -152,15 +152,16 @@ class Quiz extends Model implements Searchable
         }
     }
 
-    public static function boot() {
+    /*public static function boot() {
         parent::boot();
 
         static::deleting(function($quiz) { // before delete() method call this
             if(isset($quiz->image->path) && file_exists(public_path($quiz->image->path)))
             {
                 unlink(public_path($quiz->image->path));  // delete image if exists
+                dump('delete');
             }
             $quiz->image()->delete();
         });
-    }
+    }*/
 }

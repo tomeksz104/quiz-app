@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Quizzes\QuizWizard\Steps;
 
 use App\Enums\QuizStatus;
 use App\Enums\UserRole;
-use App\Models\Answers;
+use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Quiz;
 use App\Models\ResultMessage;
@@ -122,11 +122,20 @@ class SaveQuizStepComponent extends StepComponent
                 }
                 $result_messages_to_sync[] = $result_message_model->id;
             }
-            $quiz->result_messages()->whereNotIn('id', $result_messages_to_sync)->delete();
+            foreach($quiz->result_messages as $result_message)
+            {
+                if(!in_array($result_message->id, $result_messages_to_sync))
+                {
+                    $result_message->delete();
+                }
+            }
         }
         else
         {
-            $quiz->result_messages()->delete();
+            foreach($quiz->result_messages as $result_message)
+            {
+                $result_message->delete();
+            }
         }
 
         // Saving questions
@@ -168,7 +177,7 @@ class SaveQuizStepComponent extends StepComponent
             $answers_to_sync = [];
             foreach ($question['answers'] as $answer)
             {
-                $answer_model = Answers::updateOrCreate([
+                $answer_model = Answer::updateOrCreate([
                     'id' =>  $answer['id'] ?? null
                 ], [
                     'title' => $answer['title'],
@@ -201,10 +210,23 @@ class SaveQuizStepComponent extends StepComponent
                 }
                 $answers_to_sync[] = $answer_model->id;
             }
-            $question_model->answers()->whereNotIn('id', $answers_to_sync)->delete();
+
+            foreach($question_model->answers as $answer)
+            {
+                if(!in_array($answer->id, $answers_to_sync))
+                {
+                    $answer->delete();
+                }
+            }
         }
 
-       $quiz->questions()->whereNotIn('id', $questions_to_sync)->delete();
+       foreach($quiz->questions as $question)
+       {
+           if(!in_array($question->id, $questions_to_sync))
+           {
+               $question->delete();
+           }
+       }
 
         return $quiz;
     }

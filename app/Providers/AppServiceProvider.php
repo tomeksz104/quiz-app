@@ -7,10 +7,17 @@ use App\Http\Livewire\Quizzes\QuizWizard\Steps\QuestionsStepComponent;
 use App\Http\Livewire\Quizzes\QuizWizard\Steps\QuizDetailsStepComponent;
 use App\Http\Livewire\Quizzes\QuizWizard\Steps\ResultMessagesStepComponent;
 use App\Http\Livewire\Quizzes\QuizWizard\Steps\SaveQuizStepComponent;
+use App\Models\Answer;
 use App\Models\Category;
+use App\Models\Question;
 use App\Models\Quiz;
+use App\Models\ResultMessage;
 use App\Models\Settings;
 use App\Models\User;
+use App\Observers\AnswerObserver;
+use App\Observers\QuestionObserver;
+use App\Observers\QuizObserver;
+use App\Observers\ResultMessageObserver;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -44,6 +51,11 @@ class AppServiceProvider extends ServiceProvider
         Livewire::component('questions-step', QuestionsStepComponent::class);
         Livewire::component('result-messages-step', ResultMessagesStepComponent::class);
         Livewire::component('save-quiz-step', SaveQuizStepComponent::class);
+
+        Quiz::observe(QuizObserver::class);
+        Question::observe(QuestionObserver::class);
+        Answer::observe(AnswerObserver::class);
+        ResultMessage::observe(ResultMessageObserver::class);
 
         if( Schema::hasTable( 'quizzes' )
             && Schema::hasTable(  'users')

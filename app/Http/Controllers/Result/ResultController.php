@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Result;
 
 use App\Http\Controllers\Controller;
-use App\Models\Answers;
+use App\Models\Answer;
 use App\Models\ResultMessage;
 use App\Models\ResultsQuestion;
 use App\Models\ResultsQuiz;
@@ -49,7 +49,7 @@ class ResultController extends Controller
             {
                 $aswers_ids[] = $question->question_answer_id;
             }
-            $question_answers = Answers::whereIn('id', $aswers_ids)
+            $question_answers = Answer::whereIn('id', $aswers_ids)
                 ->get('result_message_id')
                 ->toArray();
 

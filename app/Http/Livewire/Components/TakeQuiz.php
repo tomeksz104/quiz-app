@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Components;
 
-use App\Models\Answers;
+use App\Models\Answer;
 use App\Models\Quiz;
 use App\Models\ResultsQuestion;
 use App\Models\ResultsQuiz;
@@ -61,7 +61,7 @@ class TakeQuiz extends Component
         $result = 0;
 
         $questions_ids = $this->quiz->questions->pluck('id')->toArray();
-        $correct_answers = Answers::whereIn('question_id', $questions_ids)->where('correct', 1)->pluck('id')->toArray();
+        $correct_answers = Answer::whereIn('question_id', $questions_ids)->where('correct', 1)->pluck('id')->toArray();
 
         $resultQuiz = new ResultsQuiz();
         $resultQuiz->ip_address = request()->ip();
@@ -93,7 +93,7 @@ class TakeQuiz extends Component
         if($this->quiz->quiz_type === 4)
         {
 
-            $question_answers = Answers::whereIn('id', $answers_ids)
+            $question_answers = Answer::whereIn('id', $answers_ids)
                 ->get('result_message_id')
                 ->toArray();
 
