@@ -61,13 +61,23 @@ class Quizzes extends Component
     public function delete($ids){
         foreach((array) $ids as $key => $quizId) {
             $quiz = Quiz::find($quizId);
-            $quiz->questions()->delete();
-            $quiz->quizView()->delete();
-            $quiz->votes()->delete();
-            $quiz->comments()->delete();
-            $quiz->result_messages()->delete();
-            $quiz->results()->delete();
-            $quiz->image()->delete();
+
+            foreach($quiz->questions as $question) // foreach because with mass deletion, Observer will not work
+            {
+                foreach($question->answers as $answer)
+                {
+                    $answer->delete();
+                }
+                $question->delete();
+            }
+            foreach($quiz->result_messages as $result_message)
+            {
+                $result_message->delete();
+            }
+            foreach($quiz->result_messages as $result_message) // foreach because with mass deletion, Observer will not work
+            {
+                $result_message->delete();
+            }
 
             $quiz->delete();
         }
