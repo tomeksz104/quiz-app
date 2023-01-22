@@ -23,11 +23,11 @@ A simple application on which any user can create one of five types of quizzes:
 
 ## Demo
 
-coming soon
+https://tomaszszamocki.pl/
 
 ### Some screenshots
 
-You can find some screenshots of the application on :  coming soon
+You can find some screenshots of the application on :  https://imgur.com/a/EFriCT8
 
 ## Installation
 
