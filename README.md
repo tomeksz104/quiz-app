@@ -21,11 +21,7 @@ A simple application on which any user can create one of five types of quizzes:
 - Toast notifications
 - Newsletter
 
-## Demo
-
-https://tomaszszamocki.pl/
-
-### Some screenshots
+## Some screenshots
 
 You can find some screenshots of the application on :  https://imgur.com/a/EFriCT8
 
